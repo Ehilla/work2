@@ -79,7 +79,6 @@ public:
 	virtual size_t size() const override {
 		return list.size();
 	}
-
 };
 
 Stack::Stack(StackContainer container) {
@@ -119,6 +118,7 @@ Stack::Stack(const Stack& copyStack) {
 
 Stack& Stack::operator=(const Stack& copyStack) {
 	if (&copyStack != this) {
+		delete pimpl;
 		if (copyStack.containerType == StackContainer::Vector) {
 			pimpl = new StackVec(*dynamic_cast<StackVec*>(copyStack.pimpl));
 		} else if (copyStack.containerType == StackContainer::List) {
