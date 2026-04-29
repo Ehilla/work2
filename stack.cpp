@@ -41,6 +41,7 @@ public:
 	virtual size_t size() const override {
 		return data.size();
 	}
+
 };
 
 class List : public IStackImplementation {
